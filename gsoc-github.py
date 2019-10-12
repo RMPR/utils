@@ -9,20 +9,23 @@ Spreadsheet with a cell of the column targeted selected
 """
 from pyautogui import press, typewrite, hotkey
 import subprocess
+import time
 
-sleep(2)  # give the time to focus on the window
+time.sleep(5)  # give the time to focus on the window
 
-press('down')
-hotkey('ctrl', 'c')
-hotkey('winleft', 'left')
-press('escape')
-press('f')
-press('e')
-pseudo = subprocess.check_output(["wl-paste"]).decode("utf-8")
-typewrite(pseudo)
-press('enter')
-press('escape')
-press('f')
-press('o')
-hotkey('winleft', 'right')
+while(True):
+    press('down')
+    hotkey('ctrl', 'c')
+    hotkey('winleft', 'left')
+    press('escape')
+    press('f')
+    press('e')
+    hotkey('ctrl', 'q')
+    hotkey('ctrl', 'v')
+    press('enter')
+    time.sleep(5)
+    press('escape')
+    press('f')
+    press('o')
+    hotkey('winleft', 'right')
 
